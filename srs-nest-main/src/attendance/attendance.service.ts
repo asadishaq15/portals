@@ -7,7 +7,7 @@ import {
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateAttendanceDto } from './dto/create-attendance.dto';
-import { Attendance, AttendanceDocument } from './schema/schema.attendace';
+import { Attendance, AttendanceDocument } from './schema/schema.attendance';
 
 @Injectable()
 export class AttendanceService {

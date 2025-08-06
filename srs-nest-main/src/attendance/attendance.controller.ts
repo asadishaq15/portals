@@ -1,7 +1,7 @@
 import { Controller, Post, Get, Body, Query } from '@nestjs/common';
 import { AttendanceService } from './attendance.service';
 import { CreateAttendanceDto } from './dto/create-attendance.dto';
-import { Attendance } from './schema/schema.attendace';
+import { Attendance } from './schema/schema.attendance';
 
 @Controller('attendance')
 export class AttendanceController {
