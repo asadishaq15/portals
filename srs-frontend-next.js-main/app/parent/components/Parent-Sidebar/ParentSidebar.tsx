@@ -65,11 +65,11 @@ const ParentSidebar = ({isSidebarOpen, setIsSidebarOpen}:{isSidebarOpen:boolean,
       href: "/parent/announcements",
       icon: Bell,
     },
-    {
-      name: "Communication",
-      href: "/parent/communication",
-      icon: MessageSquare,
-    },
+    // {
+    //   name: "Communication",
+    //   href: "/parent/communication",
+    //   icon: MessageSquare,
+    // },
     {
       name: "Behavior Log",
       href: "/parent/behavior",

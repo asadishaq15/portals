@@ -33,20 +33,20 @@ export function StudentProvider({ children }: { children: ReactNode }) {
       
       // Mock data
       const mockStudents: Student[] = [
-        { 
-          id: '1', 
-          name: 'Daniyal', 
-          grade: '9th Grade', 
-          school: 'Lincoln High School',
-          image: '/students/student1.jpg'
-        },
-        { 
-          id: '2', 
-          name: 'Joe', 
-          grade: '7th Grade', 
-          school: 'Lincoln Middle School',
-          image: '/students/student2.jpg'
-        },
+        // { 
+        //   id: '1', 
+        //   name: 'Daniyal', 
+        //   grade: '9th Grade', 
+        //   school: 'Lincoln High School',
+        //   image: '/students/student1.jpg'
+        // },
+        // { 
+        //   id: '2', 
+        //   name: 'Joe', 
+        //   grade: '7th Grade', 
+        //   school: 'Lincoln Middle School',
+        //   image: '/students/student2.jpg'
+        // },
         { 
           id: '3', 
           name: 'Emily', 
