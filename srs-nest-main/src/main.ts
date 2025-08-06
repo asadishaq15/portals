@@ -6,16 +6,16 @@ import { ensureUploadsFolder } from 'utils/methods';
 import * as cookieParser from 'cookie-parser';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import express, { Express } from 'express';
-import cors from 'cors';          // ← import it
+import cors from 'cors';
 
 dotenv.config();
 const server: Express = express();
 
-// ← add this block *before* NestFactory.create:
+// Simplify to a single CORS configuration at the Express level
 server.use(
   cors({
-    origin: 'https://portals-mu.vercel.app',
-    methods: ['GET','HEAD','PUT','PATCH','POST','DELETE','OPTIONS'],
+    origin: ['https://portals-mu.vercel.app'],
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     allowedHeaders: [
       'Origin',
       'X-Requested-With',
@@ -35,16 +35,6 @@ async function bootstrap() {
   );
 
   app.use(cookieParser());
-
-  // you can still keep this:
-  app.enableCors({
-    origin: 'https://portals-mu.vercel.app',
-    credentials: true,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    allowedHeaders:
-      'Origin, X-Requested-With, Content-Type, Accept, Authorization',
-  });
-
   app.use(json());
   app.use(urlencoded({ extended: true }));
   await app.init();
