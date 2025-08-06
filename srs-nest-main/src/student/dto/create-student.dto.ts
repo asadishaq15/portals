@@ -90,17 +90,17 @@ export class CreateStudentDto {
 
   @IsOptional()
   @IsString()
-  transcripts?: string[]; // Can store file URL or text
+  transcripts?: string[]; 
 
   @IsOptional()
   @IsString()
-  iipFlag?: string; // IIP-related info
+  iipFlag?: string; 
 
   @IsBoolean()
-  honorRolls: boolean; // Honor Rolls flag (default false)
+  honorRolls: boolean;
 
   @IsBoolean()
-  athletics: boolean; // Athletics activities
+  athletics: boolean; 
 
   @IsOptional()
   @IsString()
