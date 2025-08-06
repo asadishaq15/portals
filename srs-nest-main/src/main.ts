@@ -1,21 +1,19 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import * as dotenv from 'dotenv';
-import { json, urlencoded } from 'express';
-import { ensureUploadsFolder } from 'utils/methods';
-import * as cookieParser from 'cookie-parser';
 import { ExpressAdapter } from '@nestjs/platform-express';
-import express, { Express } from 'express';
-import cors from 'cors';
+import express, { Express } from 'express'; // Import Express type here!
+import cookieParser from 'cookie-parser';
+import { json, urlencoded } from 'express';
 
-dotenv.config();
-const server: Express = express();
+const server: Express = express(); // Explicitly annotate the type
 
-// Simplify to a single CORS configuration at the Express level
-server.use(
-  cors({
-    origin: ['https://portals-mu.vercel.app'],
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(server));
+  // Enable CORS at the NEST level, not express!
+  app.enableCors({
+    origin: 'https://portals-mu.vercel.app',
+    credentials: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     allowedHeaders: [
       'Origin',
       'X-Requested-With',
@@ -23,16 +21,8 @@ server.use(
       'Accept',
       'Authorization',
     ],
-    credentials: true,
-  })
-);
-
-async function bootstrap() {
-  ensureUploadsFolder();
-  const app = await NestFactory.create(
-    AppModule,
-    new ExpressAdapter(server),
-  );
+    exposedHeaders: ['Set-Cookie'],
+  });
 
   app.use(cookieParser());
   app.use(json());
@@ -42,7 +32,6 @@ async function bootstrap() {
 
 bootstrap();
 
-// export for Vercel
 export default server;
 
 if (process.env.NODE_ENV !== 'production') {
