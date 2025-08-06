@@ -9,7 +9,7 @@ import { UpdateStudentDto } from './dto/update-student.dto';
 import * as XLSX from 'xlsx';
 import { Guardian } from '../guardian/schema/guardian.schema';
 import { ResponseDto } from 'src/dto/response.dto';
-import { Attendance } from 'src/attendance/schema/schema.attendance';
+import { Attendance } from '../attendance/schema/schema.attendance';
 import { Course } from 'src/course/schema/course.schema';
 import { UploadedFileType } from 'utils/multer.config';
 import { InjectConnection } from '@nestjs/mongoose';

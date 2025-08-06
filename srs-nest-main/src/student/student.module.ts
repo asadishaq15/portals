@@ -8,7 +8,7 @@ import { Guardian, GuardianSchema } from '../guardian/schema/guardian.schema';
 import {
   Attendance,
   AttendanceSchema,
-} from 'src/attendance/schema/schema.attendance';
+} from '../attendance/schema/schema.attendance';
 import { Course, CourseSchema } from 'src/course/schema/course.schema';
 
 @Module({
