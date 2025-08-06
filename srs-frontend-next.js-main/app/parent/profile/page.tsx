@@ -61,41 +61,41 @@ interface Student {
 
 // Mock student data based on student ID
 const mockStudentData: Record<string, Student> = {
+  // "1": {
+  //   id: "1",
+  //   firstName: "Daniyal",
+  //   lastName: "Qammar",
+  //   email: "daniyal.qammar@student.example.com",
+  //   phone: "(555) 123-4567",
+  //   dob: "2009-05-15",
+  //   address: "123 Main Street, Anytown, USA",
+  //   class: "9",
+  //   profilePhoto: "/students/student1.jpg",
+  //   section: "A",
+  //   enrollDate: "2022-09-01",
+  //   expectedGraduation: "2026",
+  //   emergencyContact: "(555) 987-6543",
+  //   guardian: {
+  //     guardianName: "Qammar",
+  //     guardianRelation: "Father",
+  //     guardianEmail: "Qammar.@example.com",
+  //     guardianPhone: "(555) 789-0123",
+  //     guardianProfession: "Software Engineer"
+  //   },
+  //   homeroom: {
+  //     teacherName: "Ms. Sarah Thompson",
+  //     email: "s.thompson@school.edu",
+  //     phone: "(555) 234-5678"
+  //   },
+  //   schoolInfo: {
+  //     name: "Lincoln High School",
+  //     address: "456 Education Blvd, Anytown, USA",
+  //     phone: "(555) 876-5432",
+  //     principal: "Dr. William Anderson"
+  //   }
+  // },
   "1": {
     id: "1",
-    firstName: "Daniyal",
-    lastName: "Qammar",
-    email: "daniyal.qammar@student.example.com",
-    phone: "(555) 123-4567",
-    dob: "2009-05-15",
-    address: "123 Main Street, Anytown, USA",
-    class: "9",
-    profilePhoto: "/students/student1.jpg",
-    section: "A",
-    enrollDate: "2022-09-01",
-    expectedGraduation: "2026",
-    emergencyContact: "(555) 987-6543",
-    guardian: {
-      guardianName: "Qammar",
-      guardianRelation: "Father",
-      guardianEmail: "Qammar.@example.com",
-      guardianPhone: "(555) 789-0123",
-      guardianProfession: "Software Engineer"
-    },
-    homeroom: {
-      teacherName: "Ms. Sarah Thompson",
-      email: "s.thompson@school.edu",
-      phone: "(555) 234-5678"
-    },
-    schoolInfo: {
-      name: "Lincoln High School",
-      address: "456 Education Blvd, Anytown, USA",
-      phone: "(555) 876-5432",
-      principal: "Dr. William Anderson"
-    }
-  },
-  "2": {
-    id: "2",
     firstName: "Joe",
     lastName: "Johnson",
     email: "Joe.johnson@student.example.com",
