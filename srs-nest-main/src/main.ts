@@ -1,5 +1,3 @@
-// src/main.ts
-
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as dotenv from 'dotenv';
@@ -7,11 +5,27 @@ import { json, urlencoded } from 'express';
 import { ensureUploadsFolder } from 'utils/methods';
 import * as cookieParser from 'cookie-parser';
 import { ExpressAdapter } from '@nestjs/platform-express';
-import * as express from 'express';
-import { Express } from 'express';
+import express, { Express } from 'express';
+import cors from 'cors';          // ← import it
 
 dotenv.config();
 const server: Express = express();
+
+// ← add this block *before* NestFactory.create:
+server.use(
+  cors({
+    origin: 'https://portals-mu.vercel.app',
+    methods: ['GET','HEAD','PUT','PATCH','POST','DELETE','OPTIONS'],
+    allowedHeaders: [
+      'Origin',
+      'X-Requested-With',
+      'Content-Type',
+      'Accept',
+      'Authorization',
+    ],
+    credentials: true,
+  })
+);
 
 async function bootstrap() {
   ensureUploadsFolder();
@@ -22,18 +36,17 @@ async function bootstrap() {
 
   app.use(cookieParser());
 
-  // 🛠️ Tighten CORS to your frontend domain:
+  // you can still keep this:
   app.enableCors({
-    origin: 'https://portals-mu.vercel.app',         // your Next.js URL
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',// allowed HTTP verbs
-    allowedHeaders:                              
+    origin: 'https://portals-mu.vercel.app',
+    credentials: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders:
       'Origin, X-Requested-With, Content-Type, Accept, Authorization',
-    credentials: true,                             // allow cookies/auth
   });
 
   app.use(json());
   app.use(urlencoded({ extended: true }));
-
   await app.init();
 }
 

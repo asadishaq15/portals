@@ -2,9 +2,9 @@
   "name": "pludo-nest",
   "version": "0.0.1",
   "description": "",
-   "_moduleAliases": {
-       "src": "dist/src"
-     },
+  "_moduleAliases": {
+    "src": "dist/src"
+  },
   "author": "",
   "private": true,
   "license": "UNLICENSED",
@@ -50,6 +50,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "csv-parser": "^3.2.0",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
