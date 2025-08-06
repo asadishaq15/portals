@@ -14,7 +14,6 @@ export class ParentService {
   ) {}
 
   async create(createParentDto: CreateParentDto): Promise<Parent> {
-    // Hash password before saving
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(createParentDto.password, salt);
 
